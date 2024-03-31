@@ -3,6 +3,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  app.enableCors(); // Add this line
+  app.setGlobalPrefix('api'); // Add this line
+  await app.listen(3001);
 }
 bootstrap();
+// TODO: add all Enums and common dtos
+// TODO: add testing
+// TODO: add feature future expense
+// TODO: connect swagger?
+// TODO: connect all dbs
