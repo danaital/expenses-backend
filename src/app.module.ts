@@ -18,6 +18,7 @@ import { UsersModule } from './features/users/users.module';
       entities: [User],
     }),
     UsersModule, // TODO: add auth module
+    //https://medium.com/simform-engineering/nestjs-and-postgresql-a-crud-tutorial-32aa78778752
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE user (
     "id" SERIAL PRIMARY KEY,
     "userName" VARCHAR(50) NOT NULL UNIQUE,
     "email" VARCHAR(100) NOT NULL UNIQUE,
@@ -10,5 +10,6 @@ CREATE TABLE users (
     "registrationDate" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "lastLoginDate" TIMESTAMP,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
-    "metadata" JSONB NOT NULL DEFAULT '{}'
+    "metadata" JSONB NOT NULL DEFAULT '{}',
+    FOREIGN KEY ("roleId") REFERENCES "role"("id")
 );

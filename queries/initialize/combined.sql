@@ -1,10 +1,10 @@
-CREATE TABLE roles (
+CREATE TABLE role (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(50) NOT NULL,
     "description" VARCHAR(255) NOT NULL DEFAULT ''
 );
 
-CREATE TABLE users (
+CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "userName" VARCHAR(50) NOT NULL,
     "email" VARCHAR(100) NOT NULL,
@@ -16,15 +16,17 @@ CREATE TABLE users (
     "lastLoginDate" TIMESTAMP,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
     "metadata" JSONB NOT NULL DEFAULT '{}',
-    FOREIGN KEY ("roleId") REFERENCES roles("id")
+    "roleId" INT NOT NULL,
+    FOREIGN KEY ("roleId") REFERENCES "role"("id")
 );
 
-CREATE TABLE "expenseTypes" (
+CREATE TABLE "expenseType" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(50) NOT NULL,
     "description" VARCHAR(255) NOT NULL DEFAULT ''
 );
-CREATE TABLE expenses (
+
+CREATE TABLE "expense" (
     "id" SERIAL PRIMARY KEY,
     "userId" INT NOT NULL,
 	"expenseTypeId" INT NOT NULL,
@@ -33,6 +35,7 @@ CREATE TABLE expenses (
     "description" VARCHAR(255) NOT NULL DEFAULT '',
     "expenseDate" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "paidTo" VARCHAR(100) NOT NULL DEFAULT '',
-    FOREIGN KEY ("userId") REFERENCES users("id"),
-    FOREIGN KEY ("expenseTypeId") REFERENCES "expenseTypes"("id")
+    "metadata" JSONB NOT NULL DEFAULT '{}',
+    FOREIGN KEY ("userId") REFERENCES "user"("id"),
+    FOREIGN KEY ("expenseTypeId") REFERENCES "expenseType"("id")
 );

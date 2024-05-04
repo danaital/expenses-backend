@@ -1,4 +1,4 @@
-INSERT INTO expenses ("userId", "expenseTypeId", "title", "amount", "description", "expenseDate", "paidTo")
+INSERT INTO "expense" ("userId", "expenseTypeId", "title", "amount", "description", "expenseDate", "paidTo")
 VALUES 
     (1, 1, 'Groceries Shopping', 50.00, 'Weekly grocery shopping', '2024-03-22 10:00:00', 'Shufersal'),
     (1, 2, 'Water bill', 100.00, 'Monthly Electric bill', '2024-03-23 12:00:00', 'Electric '),

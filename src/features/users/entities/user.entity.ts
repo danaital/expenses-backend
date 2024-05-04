@@ -1,10 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-// TODO change to user entity
-// TODO build user response object
+// TODO change to UserEntity
+// TODO build UserResponse object
 // TODO Linter on save
 // TODO prettier on save
 // TODO shorten paths
-// TODO maybe move user entity to dtos? 
+// TODO maybe move user entity to dtos?
+// TODO add config service
+// TODO download postman to check.
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -44,4 +46,5 @@ export class User {
 
   @Column({ type: 'jsonb', nullable: true })
   metadata?: any;
+  // TODO change any to meta data
 }

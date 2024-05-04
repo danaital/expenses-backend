@@ -13,3 +13,5 @@ bootstrap();
 // TODO: add feature future expense
 // TODO: connect swagger?
 // TODO: connect all dbs
+// TODO: add bcrypt, JWT, google login,
+// TODO: add Dockerfile + give initial db

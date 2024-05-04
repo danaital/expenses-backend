@@ -16,7 +16,7 @@ export class UsersController {
   // TODO: understand why it doesnt like existing data
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
+  @Post('newuser')
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
@@ -26,7 +26,7 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get(':id')
+  @Get('user/:id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);
   }
@@ -41,8 +41,8 @@ export class UsersController {
     return this.usersService.remove(+id);
   }
 
-  // @Get('count')
-  // count() {
-  //   return this.usersService.count();
-  // }
+  @Get('count')
+  count() {
+    return this.usersService.count();
+  }
 }
