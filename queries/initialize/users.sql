@@ -1,11 +1,11 @@
-CREATE TABLE user (
+CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "userName" VARCHAR(50) NOT NULL UNIQUE,
     "email" VARCHAR(100) NOT NULL UNIQUE,
     "firstName" VARCHAR(50) NOT NULL,
     "lastName" VARCHAR(50) NOT NULL,
     "middleName" VARCHAR(50),
-    "password" VARCHAR(255) NOT NULL,
+--  "password" VARCHAR(255) NOT NULL, todo: make this line to not break the code
     "roleId" INT NOT NULL,
     "registrationDate" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "lastLoginDate" TIMESTAMP,

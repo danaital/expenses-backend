@@ -1,12 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-// TODO change to UserEntity
 // TODO build UserResponse object
+// TODO build UserProfile object
 // TODO Linter on save
 // TODO prettier on save
 // TODO shorten paths
 // TODO maybe move user entity to dtos?
 // TODO add config service
-// TODO download postman to check.
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -15,8 +15,9 @@ export class User {
   @Column({ type: 'varchar', length: 50, unique: true })
   userName: string;
 
+  // TODO: add password field
   @Column({ type: 'varchar', length: 20 })
-  password: string;
+  pass: string;
 
   @Column({ type: 'varchar', length: 100, unique: true })
   email: string;

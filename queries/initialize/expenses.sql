@@ -7,6 +7,7 @@ CREATE TABLE expense (
     "description" VARCHAR(255) NOT NULL DEFAULT '',
     "expenseDate" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "paidTo" VARCHAR(100) NOT NULL DEFAULT '',
+    "metadata" JSONB NOT NULL DEFAULT '{}',
     FOREIGN KEY ("userId") REFERENCES "user"("id"),
     FOREIGN KEY ("expenseTypeId") REFERENCES "expenseType"("id")
 );
