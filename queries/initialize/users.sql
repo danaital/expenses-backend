@@ -5,7 +5,7 @@ CREATE TABLE "user" (
     "firstName" VARCHAR(50) NOT NULL,
     "lastName" VARCHAR(50) NOT NULL,
     "middleName" VARCHAR(50),
---  "password" VARCHAR(255) NOT NULL, todo: make this line to not break the code
+    "password" VARCHAR(20) NOT NULL, --todo: make this line to not break the code
     "roleId" INT NOT NULL,
     "registrationDate" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "lastLoginDate" TIMESTAMP,

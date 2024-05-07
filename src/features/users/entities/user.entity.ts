@@ -15,9 +15,8 @@ export class User {
   @Column({ type: 'varchar', length: 50, unique: true })
   userName: string;
 
-  // TODO: add password field
   @Column({ type: 'varchar', length: 20 })
-  pass: string;
+  password: string;
 
   @Column({ type: 'varchar', length: 100, unique: true })
   email: string;
@@ -47,5 +46,5 @@ export class User {
 
   @Column({ type: 'jsonb', nullable: true })
   metadata?: any;
-  // TODO change any to meta data
+  // TODO change any to metadata DTO
 }

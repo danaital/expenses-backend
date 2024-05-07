@@ -19,10 +19,10 @@ export class UsersService {
     user.userName = createUserDto.userName;
     user.middleName = createUserDto.middleName;
     user.roleId = 3;
-    user.registrationDate = new Date(new Date().getUTCDate());
+    user.password = createUserDto.password; // TODO: Add encryption
+    user.registrationDate = new Date();
     user.isActive = true;
     user.metadata = {};
-    // user.password = createUserDto.password; // TODO: Add encryption
     return this.usersRepository.save(user);
   }
 
