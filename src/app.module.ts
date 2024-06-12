@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './features/users/entities/user.entity';
 import { UsersModule } from './features/users/users.module';
 import { AuthModule } from './features/auth/auth.module';
-
+import { RegisterModule } from './features/register/register.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -20,6 +20,7 @@ import { AuthModule } from './features/auth/auth.module';
     }),
     UsersModule,
     AuthModule,
+    RegisterModule,
     //https://medium.com/simform-engineering/nestjs-and-postgresql-a-crud-tutorial-32aa78778752
   ],
   controllers: [AppController],
