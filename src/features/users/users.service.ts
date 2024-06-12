@@ -44,6 +44,18 @@ export class UsersService {
     });
   }
 
+  findOneByUsername(username: string) {
+    return this.usersRepository.findOneBy({
+      userName: username,
+    });
+  }
+
+  findOneByEmail(email: string) {
+    return this.usersRepository.findOneBy({
+      email,
+    });
+  }
+
   count() {
     return this.usersRepository.count();
   }

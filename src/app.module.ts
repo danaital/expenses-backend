@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './features/users/entities/user.entity';
 import { UsersModule } from './features/users/users.module';
+import { AuthModule } from './features/auth/auth.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { UsersModule } from './features/users/users.module';
       logging: true,
       entities: [User],
     }),
-    UsersModule, // TODO: add auth module
+    UsersModule,
+    AuthModule,
     //https://medium.com/simform-engineering/nestjs-and-postgresql-a-crud-tutorial-32aa78778752
   ],
   controllers: [AppController],
