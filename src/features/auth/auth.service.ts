@@ -12,13 +12,18 @@ export class AuthService {
   async validateUser(
     username: string,
     password: string,
-  ): Promise<Partial<User>> {
+  ): Promise<Partial<User | string>> {
     const user = await this.usersService.findOneByUsername(username);
-    if (user && (await bcrypt.compare(password, user.password))) {
+    if (
+      (user && user.password === password) ||
+      (await bcrypt.compare(password, user.password))
+    ) {
+      await this.usersService.loggedInUser(user);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { password, ...result } = user;
+      result.lastLoginDate = new Date();
       return result;
     }
-    return null;
+    throw new Error('Invalid username or password');
   }
 }

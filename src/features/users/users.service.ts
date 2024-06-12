@@ -26,6 +26,11 @@ export class UsersService {
     return this.usersRepository.save(user);
   }
 
+  async loggedInUser(user: User): Promise<void> {
+    user.lastLoginDate = new Date();
+    await this.usersRepository.save(user);
+  }
+
   findAll() {
     return `This action returns all users`;
   }
