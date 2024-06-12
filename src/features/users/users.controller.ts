@@ -13,7 +13,6 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('users')
 export class UsersController {
-  // TODO: understand why it doesnt like existing data
   constructor(private readonly usersService: UsersService) {}
 
   @Post('newuser')
