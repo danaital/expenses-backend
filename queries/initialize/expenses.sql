@@ -6,6 +6,7 @@ CREATE TABLE expense (
     "amount" DECIMAL(10, 2) NOT NULL,
     "description" VARCHAR(255) NOT NULL DEFAULT '',
     "expenseDate" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "createdBy" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "paidTo" VARCHAR(100) NOT NULL DEFAULT '',
     "metadata" JSONB NOT NULL DEFAULT '{}',
     FOREIGN KEY ("userId") REFERENCES "user"("id"),
