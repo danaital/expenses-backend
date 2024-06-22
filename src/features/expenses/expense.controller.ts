@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { ExpenseService } from './expense.service';
 import { Expense } from './entities/expense.entity';
-
+import { CreateExpenseDto } from './dto/create-expense.dto';
 @Controller('expenses')
 export class ExpenseController {
   constructor(private readonly expenseService: ExpenseService) {}
@@ -11,18 +11,18 @@ export class ExpenseController {
     return this.expenseService.findAll();
   }
 
-  @Get(':id')
+  @Get('/findbyid/:id')
   findOne(@Param('id') id: number): Promise<Expense> {
     return this.expenseService.findOne(id);
   }
 
   @Post('/create')
-  create(@Body() expense: Expense): Promise<Expense> {
+  create(@Body() expense: CreateExpenseDto): Promise<Expense> {
     return this.expenseService.create(expense);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: number): Promise<void> {
-    return this.expenseService.remove(id);
+  @Get('/getAllByUser/:userId')
+  findAllByUser(@Param('userId') userId: number): Promise<Expense[]> {
+    return this.expenseService.findAllByUser(userId);
   }
 }
