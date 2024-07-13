@@ -6,7 +6,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
-// import { ExpenseType } from './expenseType.entity';
+import { ExpenseType } from '../../expenseTypes/entities/expense-type.entity';
 
 @Entity()
 export class Expense {
@@ -20,12 +20,13 @@ export class Expense {
   @JoinColumn({ name: 'userId' })
   user: User;
 
+  // TODO: add expense kind : One Time, Weekly, Monthly, Yearly, Bi-Weekly, Quarterly, Semi-Annually, Annually
   @Column()
   expenseTypeId: number;
 
-  //   @ManyToOne(() => ExpenseType)
-  //   @JoinColumn({ name: 'expenseTypeId' })
-  //   expenseType: ExpenseType;
+  @ManyToOne(() => ExpenseType)
+  @JoinColumn({ name: 'expenseTypeId' })
+  expenseType: ExpenseType;
 
   @Column({ length: 100 })
   title: string;

@@ -1,4 +1,4 @@
-INSERT INTO "expenseType" ("name")
+INSERT INTO "expenseTypes" ("name")
 VALUES 
     ('Groceries'),
     ('Utilities'),

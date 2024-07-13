@@ -8,6 +8,8 @@ import { AuthModule } from './features/auth/auth.module';
 import { RegisterModule } from './features/register/register.module';
 import { ExpenseModule } from './features/expenses/expense.module';
 import { Expense } from './features/expenses/entities/expense.entity';
+import { ExpenseType } from './features/expenseTypes/entities/expense-type.entity';
+import { ExpenseTypeModule } from './features/expenseTypes/expense-type.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -18,12 +20,13 @@ import { Expense } from './features/expenses/entities/expense.entity';
       username: 'postgres',
       synchronize: true,
       logging: true,
-      entities: [User, Expense],
+      entities: [User, Expense, ExpenseType],
     }),
     UsersModule,
     AuthModule,
     RegisterModule,
     ExpenseModule,
+    ExpenseTypeModule,
     //https://medium.com/simform-engineering/nestjs-and-postgresql-a-crud-tutorial-32aa78778752
   ],
   controllers: [AppController],
