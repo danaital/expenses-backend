@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Expense } from './entities/expense.entity';
+import { Expense, ExpenseRelations } from './entities/expense.entity';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 @Injectable()
@@ -12,11 +12,14 @@ export class ExpenseService {
   ) {}
 
   findAll(): Promise<Expense[]> {
-    return this.expenseRepository.find();
+    return this.expenseRepository.find(ExpenseRelations);
   }
 
   findOne(id: number): Promise<Expense> {
-    return this.expenseRepository.findOneBy({ id });
+    return this.expenseRepository.findOne({
+      where: { id },
+      ...ExpenseRelations,
+    });
   }
 
   create(createExpenseDto: CreateExpenseDto): Promise<Expense> {
@@ -39,7 +42,10 @@ export class ExpenseService {
   }
 
   findAllByUser(userId: number): Promise<Expense[]> {
-    return this.expenseRepository.find({ where: { userId } });
+    return this.expenseRepository.find({
+      where: { userId },
+      ...ExpenseRelations,
+    });
   }
 
   async update(

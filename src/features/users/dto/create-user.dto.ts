@@ -8,7 +8,7 @@ import {
 } from 'class-validator';
 const passwordRegEx =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$/;
-
+// TODO: Add family Id to the user to group users in a family
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
