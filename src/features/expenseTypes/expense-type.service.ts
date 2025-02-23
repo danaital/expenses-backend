@@ -5,7 +5,7 @@ import { UpdateExpenseTypeDto } from './dto/update-expense-type.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ExpenseType } from './entities/expense-type.entity';
-
+// TODO: Improve Naming of Entity, Move all Repos to a module
 @Injectable()
 export class ExpenseTypesService {
   constructor(
