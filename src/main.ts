@@ -15,3 +15,4 @@ bootstrap();
 // TODO: connect all dbs
 // TODO: add bcrypt, JWT, google login,
 // TODO: add Dockerfile + give initial db
+// TODO: Remove .envfile
