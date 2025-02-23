@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+// TODO: Improve imports to have index
 import { CreateExpenseTypeDto } from './dto/create-expense-type.dto';
 import { UpdateExpenseTypeDto } from './dto/update-expense-type.dto';
 import { InjectRepository } from '@nestjs/typeorm';
